@@ -1,2 +1,1 @@
-# hello-world
-A collection of hello world applications.
+# Hello JavaFX 17!
