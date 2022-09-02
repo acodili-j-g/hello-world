@@ -18,6 +18,4 @@ javafx {
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
-run {
-	mainClassName = 'com.github.acodili.j.g.hello.javafx.seventeen.main.Main'
-}
+application.mainClass = 'com.github.acodili.j.g.hello.javafx.seventeen.main.Main'
