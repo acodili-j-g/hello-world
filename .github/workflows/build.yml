@@ -28,7 +28,7 @@ jobs:
         run: java Main.java
         working-directory: ./src/com/example
       - name: Create build/libs directory
-        run: mkdir build/libs
+        run: mkdirs build/libs
       - name: Compile Sources JAR
         run: jar cvf "build/libs/hello-world-sources.jar" -C src .
       - name: Compile JAR
