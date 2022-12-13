@@ -25,5 +25,5 @@ jobs:
         working-directory: ./bin
       - name: Single-File Execution
         if: ${{ matrix.java >= '11' }}
-        run: java com.example.Main.java
-        working-directory: ./src
+        run: java Main.java
+        working-directory: ./src/com/example
