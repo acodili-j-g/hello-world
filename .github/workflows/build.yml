@@ -27,10 +27,8 @@ jobs:
         if: ${{ matrix.java >= '11' }}
         run: java Main.java
         working-directory: ./src/com/example
-      - name: Create build directory
-        run: mkdir build
       - name: Create build/libs directory
-        run: mkdir build/libs
+        run: mkdir build && mkdir build/libs
       - name: Compile Sources JAR
         run: jar cvf "build/libs/hello-world-sources.jar" -C src .
       - name: Compile JAR
