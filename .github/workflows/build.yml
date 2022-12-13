@@ -19,7 +19,7 @@ jobs:
       - name: Compile Sources
         run: |
           mkdir bin
-          javac -d -verbose "./bin/" src/com/example/Main.java
+          javac -verbose -d "./bin/" src/com/example/Main.java
       - name: Run Main Class
         run: java com.example.Main
         working-directory: ./bin
