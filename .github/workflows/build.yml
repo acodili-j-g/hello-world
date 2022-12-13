@@ -27,3 +27,11 @@ jobs:
         if: ${{ matrix.java >= '11' }}
         run: java Main.java
         working-directory: ./src/com/example
+      - name: Compile JAR
+        run: jar -c -C "./bin/" -f "hello-world"
+      - name: Upload JAR Artifact
+        if: ${{ runner.os == 'Windows' && matrix.java == '8' }} # Only upload artifacts built from one strategy
+        uses: actions/upload-artifact@v3
+        with:
+          name: hello-world.jar
+          path: hello-world.jar
