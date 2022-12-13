@@ -28,7 +28,7 @@ jobs:
         run: java Main.java
         working-directory: ./src/com/example
       - name: Compile JAR
-        run: jar cvf hello-world.jar -C "./bin/"
+        run: jar cvf "hello-world.jar" bin/*
       - name: Upload JAR Artifact
         if: ${{ runner.os == 'Windows' && matrix.java == '8' }} # Only upload artifacts built from one strategy
         uses: actions/upload-artifact@v3
