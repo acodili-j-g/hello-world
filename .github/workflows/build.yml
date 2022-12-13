@@ -30,4 +30,4 @@ jobs:
           mkdir bin
           gcc -Wall src/main.c -o hello
       - name: Run Main Executable
-        run: hello
+        run: ./hello
