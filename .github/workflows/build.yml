@@ -19,4 +19,4 @@ jobs:
         run: java -d "./bin/" src/com/example/Main.java
       - name: Run Main Class
         run: java com.example.Main
-        working-dir: ./bin
+        working-directory: ./bin
