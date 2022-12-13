@@ -15,8 +15,8 @@ jobs:
         with:
           distribution: temurin
           java-version: 8
-      - name: Build
-        run: java -d "./bin/" src/com/example/Main.java
+      - name: Compile Sources
+        run: javac -d "./bin/" src/com/example/Main.java
       - name: Run Main Class
         run: java com.example.Main
         working-directory: ./bin
