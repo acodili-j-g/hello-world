@@ -5,6 +5,7 @@ jobs:
   build:
     strategy:
       matrix:
+        java: [ 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ]
         os: [ windows-latest, ubuntu-latest, macos-latest ]
     runs-on: ${{ matrix.os }}
     steps:
@@ -14,7 +15,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: temurin
-          java-version: 8
+          java-version: ${{ matrix.java }}
       - name: Create bin directory
         run: mkdir bin
       - name: Compile Sources
@@ -22,3 +23,7 @@ jobs:
       - name: Run Main Class
         run: java com.example.Main
         working-directory: ./bin
+      - name: Single-File Execution
+        if: ${{ matrix.java >= '11' }}
+        run: java com.example.Main.java
+        working-directory: ./src
