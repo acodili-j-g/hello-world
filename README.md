@@ -19,8 +19,8 @@ To run the compiled sources:
  2. Run `java com.example.Main`
  3. The command line should print out `Hello, World!`
 
-To run without compilation (Java 11+)
+For Java 11+ Single-File Execution:
 
- 1. Open the command line in the `src` directory
- 2. Run `java com.example.Main.java`
+ 1. Open the command line in the `src/com/example` directory
+ 2. Run `java Main.java`
  3. The command line should print out `Hello, World!`
