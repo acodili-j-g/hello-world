@@ -15,7 +15,7 @@ jobs:
         run: |
           curl -fsSL -o install.sh https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
           less install.sh
-          NONINTERACTIVE=1 /bin/bash install.sh
+          install.sh NONINTERACTIVE=1
           rm install.sh
           gcc --version
       - name: Install GCC on Linux
