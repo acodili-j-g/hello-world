@@ -27,4 +27,4 @@ jobs:
       - name: Compile Sources
         run: |
           mkdir bin
-          gcc src/hello.c -o bin/hello-world
+          gcc src/main.c -o bin/hello-world
