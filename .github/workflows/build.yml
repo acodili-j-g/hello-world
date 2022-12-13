@@ -28,3 +28,7 @@ jobs:
         run: |
           mkdir bin
           gcc src/main.c -o bin/hello-world
+      - name: Run Main Executable
+        run: |
+          cd bin
+          hello-world
