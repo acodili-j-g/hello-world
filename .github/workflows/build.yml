@@ -1,0 +1,30 @@
+name: build
+on: [ pull_request, push, workflow_dispatch ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, macos-latest ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Install GCC on Linux
+        if: ${{ runner.os == 'Linux' }}
+        run: |
+          sudo apt update
+          sudo apt install build-essential
+          sudo apt-get install manpages-dev
+          gcc --version
+      - name: Install GCC on macOS
+        if: ${{ runner.os == 'macOS' }}
+        run: |
+          curl -fsSL -o install.sh https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+          less install.sh
+          NONINTERACTIVE=1 /bin/bash install.sh
+          gcc --version
+      - name: Compile Sources
+        run: |
+          mkdir bin
+          gcc src/hello.c -o bin/hello-world
