@@ -1,0 +1,22 @@
+name: build
+on: [ pull_request, push, workflow_dispatch ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ windows-latest, ubuntu-latest, macos-latest ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Setup JDK ${{ matrix.java }}
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 8
+      - name: Build
+        run: java -d "./bin/" src/com/example/Main.java
+      - name: Run Main Class
+        run: java com.example.Main
+        working-dir: ./bin
