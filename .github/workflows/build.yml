@@ -5,11 +5,19 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ ubuntu-latest, macos-latest ]
+        os: [ windows-latest, ubuntu-latest, macos-latest ]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
+      - name: Install GCC on Windows
+        if: ${{ runner.os == 'Windows' }}
+        run: |
+          curl -fsSL -o install.sh https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+          less install.sh
+          NONINTERACTIVE=1 /bin/bash install.sh
+          rm install.sh
+          gcc --version
       - name: Install GCC on Linux
         if: ${{ runner.os == 'Linux' }}
         run: |
