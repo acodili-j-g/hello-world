@@ -28,8 +28,8 @@ jobs:
       - name: Compile Sources
         run: |
           mkdir bin
-          gcc src/main.c -o bin/hello-world
+          gcc -Wall src/main.c -o "bin/hello-world"
       - name: Run Main Executable
         run: |
           cd bin
-          hello-world.exe
+          hello-world
